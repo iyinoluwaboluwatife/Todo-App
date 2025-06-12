@@ -10,17 +10,34 @@ import ViewMorePage, { todoLoader } from './pages/viewmorepage.jsx';
 let queryClient = new QueryClient();
 
 function App() {
-  let router = createBrowserRouter(
-    createRoutesFromElements(
-      <Route path="/" element={<MainLayout />}>
-        <Route path="*" element={<ErrorPage />} />
-        <Route index element={<HomePage />} />
-        <Route path="/edit-task/:id" element={<EditPage />} loader={todoLoader} />
-        <Route path="/add-task" element={<AddTaskPage />} />
-        <Route path="/viewmore-task/:id" element={<ViewMorePage />} loader={todoLoader} />
-      </Route>
-    )
-  );
+  let router = createBrowserRouter([
+  {
+    path: '/',
+    element: <MainLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      { index: true, element: <HomePage /> },
+      {
+        path: 'edit-task/:id',
+        element: <EditPage />,
+        loader: todoLoader,
+      },
+      {
+        path: 'add-task',
+        element: <AddTaskPage />,
+      },
+      {
+        path: 'viewmore-task/:id',
+        element: <ViewMorePage />,
+        loader: todoLoader,
+      },
+    ],
+  },
+  {
+    path: '*',
+    element: <ErrorPage />,
+  },
+]);
 
   return (
     <QueryClientProvider client={queryClient}>

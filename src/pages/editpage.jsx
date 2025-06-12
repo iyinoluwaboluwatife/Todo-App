@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 function EditPage() {
   let todo = useLoaderData();
   let { id } = useParams();
+  id = Number(id);
   let queryClient = useQueryClient();
   let navigate = useNavigate();
 
@@ -26,7 +27,8 @@ function EditPage() {
     return response.json(); 
   },  
   onSuccess: () => { 
-    queryClient.invalidateQueries({ queryKey: ['todos'] }); 
+    queryClient.invalidateQueries({ queryKey: ['todos'] });
+    queryClient.invalidateQueries({ queryKey: ['todo', id] });
     toast.success('Task Updated successfully'); 
     navigate('/'); 
   }, 

@@ -47,7 +47,7 @@ function ViewMorePage() {
           </div>
           <div>
             <h3>Completion Status</h3>
-            <p>{todo.completed ? 'Completed' : 'Not Completed'}</p>
+            <p className='completionstatus'>{todo.completed ? 'Completed' : 'Not Completed'}</p>
           </div>
           <button className='delete-container' onClick={() => onDelete(todo.id)}>
             Delete<FaTrashAlt className="delete"></FaTrashAlt>
