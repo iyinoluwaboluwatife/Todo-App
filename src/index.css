@@ -350,19 +350,15 @@ form h2{
     border: 1px solid #f0ebeb;
 }
 
-.form-area select{
-    width: 48%;
-    padding: 8px 0 8px 0;
-    margin: 5px 0 25px 0;
-    border: 1px solid #f0ebeb;
-    height: 20px;
-}
+
 .form-completed select{
     width: 100%;
     padding: 8px 0 8px 0;
     margin: 5px 0 25px 0;
     border: 1px solid #f0ebeb;
     height: 30px;
+    background-color: #fff;
+    border-radius: 0;
 }
 .addtask-button{
     background-color: rgb(82, 16, 149);
