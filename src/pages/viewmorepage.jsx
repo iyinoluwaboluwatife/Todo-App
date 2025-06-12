@@ -13,7 +13,7 @@ function ViewMorePage() {
 
         let { mutate: deleteTask } = useMutation({
     mutationFn: async (id) => {
-        let response = await fetch(`http://localhost:5000/to-dos/${id}`, {
+        let response = await fetch(`/api/to-dos/${id}`, {
         method: 'DELETE',
         });
         return response.json();

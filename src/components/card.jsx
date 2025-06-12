@@ -13,7 +13,7 @@ function Card() {
   let { data: todos, error, isLoading } = useQuery({
     queryKey: ['todos'],
     queryFn: async () => {
-      let response = await fetch('http://localhost:5000/to-dos');
+      let response = await fetch('/api/to-dos');
       return response.json();
     },
   });

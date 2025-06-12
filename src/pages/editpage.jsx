@@ -12,7 +12,7 @@ function EditPage() {
 
   let { mutate: updateTaskSubmit } = useMutation({
     mutationFn: async (updatedTask) => {
-    let response = await fetch(`http://localhost:5000/to-dos/${updatedTask.id}`, {
+    let response = await fetch(`/api/to-dos/${updatedTask.id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(updatedTask),

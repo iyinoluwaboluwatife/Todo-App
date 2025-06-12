@@ -8,7 +8,7 @@ function NavSection() {
     return(
         <nav>
             <section className="logo-container">
-                <span>ToDo</span>
+                
             </section>
             <section className="nav-links">
                 <NavLink to="/" className={navClass}>Home</NavLink>
