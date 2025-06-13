@@ -24,33 +24,10 @@ let router = createBrowserRouter([
       { path: 'add-task', element: <AddTaskPage /> },
       { path: 'viewmore-task/:id', element: <ViewMorePage />, loader: todoLoader },
       { path: 'trigger-error', element: <TestErrorPage />, errorElement: <ErrorPage />, },
-      { path: '*', element: <ErrorPage /> }, // Move the catch-all route here
+      { path: '*', element: <ErrorPage /> }, 
     ],
   },
 ]);
-
-
-// let router = createBrowserRouter([
-//   {
-//     path: '/',
-//     element: <MainLayout />,
-//     children: [
-//       { index: true, element: <HomePage /> },
-//       { path: 'edit-task/:id', element: <EditPage />, loader: todoLoader },
-//       { path: 'add-task', element: <AddTaskPage /> },
-//       { path: 'viewmore-task/:id', element: <ViewMorePage />, loader: todoLoader },
-//       {
-//         path: 'trigger-error', 
-//         element: <TestErrorPage />,
-//         errorElement: <ErrorPage />, 
-//       },
-//     ],
-//   },
-//   {
-//     path: '*',
-//     element: <ErrorPage />, 
-//   },
-// ]);
 
 function App() {
 
