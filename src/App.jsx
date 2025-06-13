@@ -1,6 +1,6 @@
-import {
+import {Route,
   createBrowserRouter,
-  RouterProvider,
+  RouterProvider, createRoutesFromElements,
 } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import MainLayout from './layout/mainlayout.jsx';
@@ -13,6 +13,7 @@ import ViewMorePage, { todoLoader } from './pages/viewmorepage.jsx';
 
 let queryClient = new QueryClient();
 
+
 let router = createBrowserRouter([
   {
     path: '/',
@@ -22,20 +23,39 @@ let router = createBrowserRouter([
       { path: 'edit-task/:id', element: <EditPage />, loader: todoLoader },
       { path: 'add-task', element: <AddTaskPage /> },
       { path: 'viewmore-task/:id', element: <ViewMorePage />, loader: todoLoader },
-      {
-        path: 'trigger-error', 
-        element: <TestErrorPage />,
-        errorElement: <ErrorPage />, 
-      },
+      { path: 'trigger-error', element: <TestErrorPage />, errorElement: <ErrorPage />, },
+      { path: '*', element: <ErrorPage /> }, // Move the catch-all route here
     ],
-  },
-  {
-    path: '*',
-    element: <ErrorPage />, 
   },
 ]);
 
+
+// let router = createBrowserRouter([
+//   {
+//     path: '/',
+//     element: <MainLayout />,
+//     children: [
+//       { index: true, element: <HomePage /> },
+//       { path: 'edit-task/:id', element: <EditPage />, loader: todoLoader },
+//       { path: 'add-task', element: <AddTaskPage /> },
+//       { path: 'viewmore-task/:id', element: <ViewMorePage />, loader: todoLoader },
+//       {
+//         path: 'trigger-error', 
+//         element: <TestErrorPage />,
+//         errorElement: <ErrorPage />, 
+//       },
+//     ],
+//   },
+//   {
+//     path: '*',
+//     element: <ErrorPage />, 
+//   },
+// ]);
+
 function App() {
+
+  
+
   return (
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
