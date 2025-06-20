@@ -14,11 +14,13 @@ function EditPage() {
   let { mutate: updateTaskSubmit } = useMutation({ 
   mutationFn: async (updatedTask) => { 
     let response = await fetch(`https://jsonplaceholder.typicode.com/todos/${updatedTask.id}`, { 
-      method: 'PATCH', 
-      headers: { 'Content-Type': 'application/json' }, 
+      method: 'PUT', 
+      headers: { 'Content-type': 'application/json; charset=UTF-8', }, 
       body: JSON.stringify({ 
         title: updatedTask.title, 
         completed: updatedTask.completed, 
+        id:updatedTask.id,
+        userId: updatedTask.userId,
       }), 
     }); 
    if (!response.ok) { 

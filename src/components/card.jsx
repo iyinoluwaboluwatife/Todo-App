@@ -43,9 +43,18 @@ function Card() {
           <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search todos" /> 
         </section> 
         <section className="filter"> 
-          <button onClick={() => setFilter('all')}>All</button> 
-          <button onClick={() => setFilter('completed')}>Completed</button> 
-          <button onClick={() => setFilter('not-completed')}>Not Completed</button> 
+              <button className={filter === 'all' ? 'active' : ''}
+                onClick={() => setFilter('all')}>
+                  All
+              </button>
+              <button className={filter === 'completed' ? 'active' : ''}
+                onClick={() => setFilter('completed')}>
+                 Completed
+              </button>
+              <button className={filter === 'not-completed' ? 'active' : ''}
+                onClick={() => setFilter('not-completed')}>
+                Not Completed
+              </button>
         </section> 
         <section className="cards"> 
           {currentTodos.map((todo) => ( 
