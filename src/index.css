@@ -215,19 +215,19 @@ nav{
     margin: 20px;
 }
 .filter button{
-    background-color:none;
+    background-color:#f3dfff;
     color: #494949;
     border-radius: 2px;
     /* border: 1px solid #5e5e5e; */
     border:none;
     cursor: pointer;
-    padding: 10px 20px;
+    padding: 10px ;
     margin: 10px;
 }
 .filter button.active{
-    background-color: rgb(82, 16, 149);
+    background-color: #1c0c25;
     color: #ffffff;
-    border-radius: 2px;
+    border-radius: 5x;
     /* border: 1px solid #5e5e5e; */
     cursor: pointer;
     padding: 10px 20px;
